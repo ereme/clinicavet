@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Hello! {% endblock %}
+
+{% block body %}
+
+<h1>Añadir una nueva consulta</h1>
+<div id="form">
+{{ form_start(formulario)  }}
+{{ form_widget(formulario) }} 
+{{ form_end(formulario) }}
+</div>
+
+
+
+{% endblock %} 
+

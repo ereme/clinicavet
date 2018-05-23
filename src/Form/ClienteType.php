@@ -6,6 +6,8 @@ use App\Entity\Cliente;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class ClienteType extends AbstractType
 {
@@ -16,6 +18,8 @@ class ClienteType extends AbstractType
             ->add('direccion')
             ->add('cp')
             ->add('ciudad')
+            ->add('save', SubmitType::class, array('attr' => array('class' => 'btn btn-success')))
+            ;
         ;
     }
 

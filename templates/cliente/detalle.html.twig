@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<h1>Detalles del cliente</h1>
+
+<div id="tabla">
+	<table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>CP</th>
+                <th>Ciudad</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{cliente.direccion()}}</td>
+                    <td>{{cliente.cp()}}</td>
+                    <td>{{cliente.ciudad()}}</td>
+                </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal2">
+    Añadir mascota
+</button>
+<a class="btn btn-success" href="{{path('cliente_gasto')}}" role="button">Ver gasto medio</a>
+<h3> Mascotas </h3>
+<div class="card-deck">
+    {% for mascota in cliente.mascotas %}
+        <div class="card" width="200px">
+          <div class="card-body">
+            <h5 class="card-title">{{ mascota.nombre }}</h5>
+            <p class="card-text">{{mascota.animal}}</p>
+            <p class="card-text">{{mascota.fechanac|date("d - F - Y")}}</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Añadir consulta
+            </button>
+            <div>
+                <h6>Consultas</h6>
+                <div class="row">
+                {% for consulta in mascota.consultas %}
+                    <div class="col-md-4">
+                    <p> {{consulta.titulo}}</p>
+                    <p> {{consulta.fechahora|date("d - F - Y  H:i")}}</p>
+                    <p> {{consulta.descripcion}}</p>
+                    <p> {{consulta.importe}} €</p>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+</div>
+{% include 'cliente/modalconsulta.html.twig' %}
+{% include 'cliente/modalmascota.html.twig' %}
+
+{% endblock %}  

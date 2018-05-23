@@ -109,6 +109,14 @@ class Cliente
         return $this->mascotas;
     }
 
+    public function getTMascotas() {
+        $mas = array ();
+        for ($i=0; $i < count($this->mascotas); $i++) { 
+            $mas[$i] = $this->mascotas[$i];
+        }
+        return $mas;
+    }
+
     public function addMascota(Mascota $mascota): self
     {
         if (!$this->mascotas->contains($mascota)) {
