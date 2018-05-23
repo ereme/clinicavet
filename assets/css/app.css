@@ -8,7 +8,7 @@ header {
 	width: 100%;
 }
 
-header > img {
+header > a > img {
 	float: left;
 	text-align: left;
 	width: 150px;
@@ -52,17 +52,30 @@ body > div#cliente > button {
 	border-color: #8FBC8F;
 }
 
-div.modal-body input {
+div.modal-body {
+	text-align: left;
+}
+
+div.modal-body input, div.modal-body div#mascota_fechanac, 
+div.modal-body select#mascota_cliente, 
+div.modal-body select#consulta_mascota {
 	float: right;
 	margin-right: 50px;
+}
+
+div.modal-body div#consulta_fechahora {
+	text-align: right;
+	margin-right: 50px;
+	margin-top: -25px;
 }
 
 div.modal-body > div {
 	margin-bottom: 10px;
 }
 
-div.modal-body {
-	text-align: left;
+div.modal-body > div#form > div {
+	padding-top: 10px;
+	padding-left: 10px;
 }
 
 div.modal-footer button {
@@ -74,7 +87,7 @@ body > div#botones {
 	text-align: center;
 }
 
-body > div#botones > button, body > div#botones > a, body > div#mascotas button {
+body > div#botones > button, body > div#botones > a, body > div#mascotas button  {
 	background-color: #8FBC8F;
 	border-color: #8FBC8F;
 }

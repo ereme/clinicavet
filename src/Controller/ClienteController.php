@@ -62,8 +62,6 @@ class ClienteController extends Controller
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($consulta);
             $entityManager->flush();
-
-            return $this->redirectToRoute('cliente_nuevo'); 
         }
 
         $mascota = new Mascota();
@@ -75,8 +73,7 @@ class ClienteController extends Controller
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($mascota);
             $entityManager->flush();
-
-            return $this->redirectToRoute('cliente_nuevo'); 
+ 
         }
 
         return $this->render('cliente/detalle.html.twig', [
