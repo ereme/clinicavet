@@ -36,6 +36,12 @@ class Consulta
      */
     private $importe;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Mascota", inversedBy="consultas")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $mascota;
+
     public function getId()
     {
         return $this->id;
@@ -85,6 +91,18 @@ class Consulta
     public function setImporte(float $importe): self
     {
         $this->importe = $importe;
+
+        return $this;
+    }
+
+    public function getMascota(): ?Mascota
+    {
+        return $this->mascota;
+    }
+
+    public function setMascota(?Mascota $mascota): self
+    {
+        $this->mascota = $mascota;
 
         return $this;
     }

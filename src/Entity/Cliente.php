@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class Cliente
      * @ORM\Column(type="string", length=50)
      */
     private $ciudad;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Mascota", mappedBy="cliente")
+     */
+    private $mascotas;
+
+    public function __construct()
+    {
+        $this->mascotas = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -85,6 +97,37 @@ class Cliente
     public function setCiudad(string $ciudad): self
     {
         $this->ciudad = $ciudad;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Mascota[]
+     */
+    public function getMascotas(): Collection
+    {
+        return $this->mascotas;
+    }
+
+    public function addMascota(Mascota $mascota): self
+    {
+        if (!$this->mascotas->contains($mascota)) {
+            $this->mascotas[] = $mascota;
+            $mascota->setCliente($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMascota(Mascota $mascota): self
+    {
+        if ($this->mascotas->contains($mascota)) {
+            $this->mascotas->removeElement($mascota);
+            // set the owning side to null (unless already changed)
+            if ($mascota->getCliente() === $this) {
+                $mascota->setCliente(null);
+            }
+        }
 
         return $this;
     }

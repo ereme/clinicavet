@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,22 @@ class Mascota
      * @ORM\Column(type="date")
      */
     private $fechanac;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Cliente", inversedBy="mascotas")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cliente;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Consulta", mappedBy="mascota")
+     */
+    private $consultas;
+
+    public function __construct()
+    {
+        $this->consultas = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -68,6 +86,49 @@ class Mascota
     public function setFechanac(\DateTimeInterface $fechanac): self
     {
         $this->fechanac = $fechanac;
+
+        return $this;
+    }
+
+    public function getCliente(): ?Cliente
+    {
+        return $this->cliente;
+    }
+
+    public function setCliente(?Cliente $cliente): self
+    {
+        $this->cliente = $cliente;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Consulta[]
+     */
+    public function getConsultas(): Collection
+    {
+        return $this->consultas;
+    }
+
+    public function addConsulta(Consulta $consulta): self
+    {
+        if (!$this->consultas->contains($consulta)) {
+            $this->consultas[] = $consulta;
+            $consulta->setMascota($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConsulta(Consulta $consulta): self
+    {
+        if ($this->consultas->contains($consulta)) {
+            $this->consultas->removeElement($consulta);
+            // set the owning side to null (unless already changed)
+            if ($consulta->getMascota() === $this) {
+                $consulta->setMascota(null);
+            }
+        }
 
         return $this;
     }
