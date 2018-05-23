@@ -12,7 +12,6 @@ use App\Form\MascotaType;
 use App\Form\ConsultaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Repository\PaisRepository;
 
 
 /**
@@ -23,14 +22,28 @@ class ClienteController extends Controller
     /**
      * @Route("/index", name="cliente")
      */
-    public function index()
+    public function index(Request $request)
     {
         $repo = $this->getDoctrine()->getRepository(Cliente::class);
 
         $vectorclientes = $repo->findAll();
 
+        $cliente = new Cliente();
+        $formulario = $this->createForm(ClienteType::class, $cliente);
+        $formulario->handleRequest($request);
+        
+        if ($formulario->isSubmitted()) {
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($cliente);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('cliente'); 
+        }
+
         return $this->render('cliente/index.html.twig', [
             'vectorclientes' => $vectorclientes,
+            'formulario' => $formulario->createView()
         ]);
     }
 

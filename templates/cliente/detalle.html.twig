@@ -27,37 +27,42 @@
     </table>
 </div>
 
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal2">
-    Añadir mascota
-</button>
-<a class="btn btn-success" href="{{path('cliente_gasto')}}" role="button">Ver gasto medio</a>
-<h3> Mascotas </h3>
-<div class="card-deck">
-    {% for mascota in cliente.mascotas %}
-        <div class="card" width="200px">
-          <div class="card-body">
-            <h5 class="card-title">{{ mascota.nombre }}</h5>
-            <p class="card-text">{{mascota.animal}}</p>
-            <p class="card-text">{{mascota.fechanac|date("d - F - Y")}}</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Añadir consulta
-            </button>
-            <div>
-                <h6>Consultas</h6>
-                <div class="row">
-                {% for consulta in mascota.consultas %}
-                    <div class="col-md-4">
-                    <p> {{consulta.titulo}}</p>
-                    <p> {{consulta.fechahora|date("d - F - Y  H:i")}}</p>
-                    <p> {{consulta.descripcion}}</p>
-                    <p> {{consulta.importe}} €</p>
+<div id="botones">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal2">
+        Añadir mascota
+    </button>
+    <a class="btn btn-success" href="{{path('cliente_gasto')}}" role="button">Ver gasto medio</a>
+</div>
+
+<div id="mascotas">
+    <h3 class="center"> Mascotas </h3>
+    <div class="card-deck">
+        {% for mascota in cliente.mascotas %}
+            <div class="card" width="200px">
+              <div class="card-body">
+                <h5 class="card-title">{{ mascota.nombre }}</h5>
+                <p class="card-text">{{mascota.animal}}</p>
+                <p class="card-text">{{mascota.fechanac|date("d - F - Y")}}</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  Añadir consulta
+                </button>
+                <div id="consulta">
+                    <h6>CONSULTAS</h6>
+                    <div class="row">
+                        {% for consulta in mascota.consultas %}
+                            <div class="col-md-4">
+                            <p> {{consulta.titulo}}</p>
+                            <p> {{consulta.fechahora|date("d - F - Y  H:i")}}</p>
+                            <p> {{consulta.descripcion}}</p>
+                            <p> {{consulta.importe}} €</p>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
                 </div>
+              </div>
             </div>
-          </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 {% include 'cliente/modalconsulta.html.twig' %}
 {% include 'cliente/modalmascota.html.twig' %}

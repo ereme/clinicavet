@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th>CLIENTE</th>
-                    <th></th>
+                    <th>DETALLES</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +22,11 @@
             </tbody>
         </table>
 </div>
- 
+<div id="cliente">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal3">
+    Añadir cliente
+    </button>
+    {% include 'cliente/modalcliente.html.twig' %}
+</div> 
 
 {% endblock %}  

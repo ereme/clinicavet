@@ -10,15 +10,13 @@
     </head>
     <body>
         {% block header %} 
-            <header>
-            </header>
+            {% include 'base/header.html.twig' %}
         {% endblock %}
 
         {% block body %}{% endblock %}
 
         {% block footer %}
-            <footer>
-            </footer>
+            {% include 'base/footer.html.twig' %}
         {% endblock %}
 
         {% block javascripts %}

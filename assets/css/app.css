@@ -1,1 +1,127 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+header {
+	background-color: #8FBC8F;
+	height: 100px;
+	margin-bottom: 50px;
+	width: 100%;
+}
+
+header > img {
+	float: left;
+	text-align: left;
+	width: 150px;
+}
+
+header > h1 {
+	text-align: center;
+	padding-top: 30px;
+	font-size: 50px;
+	font-family: Andale Mono, monospace;
+	color: #FFFFFF;
+}
+
+body > h1 {
+	text-align: center;
+}
+
+body > div#tabla {
+	padding-left: 230px;
+	padding-right: 230px;
+}
+
+body > div#tabla > table > tbody a {
+	color: black;
+	border: solid;
+	border-radius: 20px;
+	border-color: #8FBC8F;
+}
+
+body > div#tabla > table > tbody a:hover {
+	color: #8FBC8F;
+	font-weight: bold;
+}
+
+body > div#cliente {
+	text-align: center;
+}
+
+body > div#cliente > button {
+	background-color: #8FBC8F;
+	border-color: #8FBC8F;
+}
+
+div.modal-body input {
+	float: right;
+	margin-right: 50px;
+}
+
+div.modal-body > div {
+	margin-bottom: 10px;
+}
+
+div.modal-body {
+	text-align: left;
+}
+
+div.modal-footer button {
+	background-color: #8FBC8F;
+	border-color: #8FBC8F;
+}
+
+body > div#botones {
+	text-align: center;
+}
+
+body > div#botones > button, body > div#botones > a, body > div#mascotas button {
+	background-color: #8FBC8F;
+	border-color: #8FBC8F;
+}
+
+.center {
+	text-align: center;
+}
+
+body > div#mascotas {
+	margin-top: 30px;
+}
+
+body > div#mascotas > div.card-deck {
+	margin-top: 30px;
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
+body > div#mascotas > div.card-deck  div.card-body > h5, 
+body > div#mascotas > div.card-deck  div.card-body > p, 
+body > div#mascotas > div.card-deck  div.card-body > button,
+body > div#mascotas > div.card-deck  div.card-body h6 {
+	margin-left: 190px;
+}
+
+body > div#mascotas > div.card-deck  div.card-body h6 {
+	margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+footer {
+	margin-top: 50px;
+	background-color: #8FBC8F;
+	height: 80px;
+	padding-top: 30px;
+}
+
+footer > p {
+	text-align: center;
+	color: white;
+	font-family: Andale Mono, monospace;
+
+}
