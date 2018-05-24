@@ -1,6 +1,5 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-
 header {
 	background-color: #8FBC8F;
 	height: 100px;
@@ -87,7 +86,7 @@ body > div#botones {
 	text-align: center;
 }
 
-body > div#botones > button, body > div#botones > a, body > div#mascotas button  {
+body > div#botones > button, body > div#botones > a, body > div#mascotas > div div > div > button  {
 	background-color: #8FBC8F;
 	border-color: #8FBC8F;
 }
@@ -106,6 +105,10 @@ body > div#mascotas > div.card-deck {
 	margin-right: 60px;
 }
 
+body > div#mascotas > div.card-deck div.card {
+	width: 200px;
+}
+
 body > div#mascotas > div.card-deck  div.card-body > h5, 
 body > div#mascotas > div.card-deck  div.card-body > p, 
 body > div#mascotas > div.card-deck  div.card-body > button,
@@ -117,22 +120,35 @@ body > div#mascotas > div.card-deck  div.card-body h6 {
 	margin-top: 20px;
 }
 
-
-
-
-
-
-
-
-
 footer {
 	margin-top: 50px;
 	background-color: #8FBC8F;
-	height: 80px;
+	height: auto;
 	padding-top: 30px;
 }
 
-footer > p {
+footer > div >div.row {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+footer > div > div.row > div > ul {
+	list-style: none;
+	color: white;
+	font-family: Andale Mono;
+}
+
+footer > div > div.row > div > ul > li {
+	font-weight: bold;
+}
+
+footer > div#autor{
+	background-color: #729672;
+	width: 100%;
+}
+
+footer > div > p {
+	margin-top: 15px;
 	text-align: center;
 	color: white;
 	font-family: Andale Mono, monospace;

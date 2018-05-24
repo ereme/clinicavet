@@ -139,4 +139,16 @@ class Cliente
 
         return $this;
     }
+
+    public function getGastoMedio (): ?float
+    {
+        $suma = 0;
+        $consultas = 0;
+        for ($i=0; $i < count($this->mascotas); $i++) { 
+            $suma = $suma + $this->mascotas[$i]->getGastoMedio();
+            $consultas = $consultas + count($this->mascotas[$i]->getConsultas());
+        }
+
+        return round($suma/$consultas , 2);
+    }
 }

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+   
+{% block body %}
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Animal</th>
+                <th>Fecha de nacimiento</th>
+                <th>Dueño</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{% for mascota in mascotas %}
+                <tr>
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.animal}}</td>
+                    <td>{{ mascota.fechanac|date("d - F - Y")}}</td>
+                    <td>{{ mascota.cliente.nombre}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Nombre</th>
+                <th>Animal</th>
+                <th>Fecha de nacimiento</th>
+                <th>Dueño</th>
+            </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}
+
+        
+    

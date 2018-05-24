@@ -132,4 +132,14 @@ class Mascota
 
         return $this;
     }
+
+    public function getGastoMedio (): ?float
+    {   
+        $suma = 0;
+        for ($i=0; $i < count($this->consultas); $i++) { 
+            $suma = $suma + $this->consultas[$i]->getImporte();
+        }
+
+        return $suma;
+    }
 }

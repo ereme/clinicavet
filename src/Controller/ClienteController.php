@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use App\Entity\Cliente;
+use App\Entity\Cliente; 
 use App\Entity\Consulta;
 use App\Entity\Mascota;
 use App\Form\ClienteType;
@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ClienteController extends Controller
 {
     /**
-     * @Route("/index", name="cliente")
+     * @Route("/", name="cliente")
      */
     public function index(Request $request)
     {
@@ -76,10 +76,12 @@ class ClienteController extends Controller
  
         }
 
+        $gastoMedioCliente = $cliente->getGastoMedio();
         return $this->render('cliente/detalle.html.twig', [
             'cliente' => $cliente,
             'formu' => $formu->createView(),
-            'formulario' => $formulario->createView()
+            'formulario' => $formulario->createView(),
+            'gasto' => $gastoMedioCliente,
         ]);
     }
     
@@ -115,9 +117,6 @@ class ClienteController extends Controller
      */
     public function gasto(Request $request)
     {
-
-
-        
         return $this->render('cliente/gasto.html.twig', [
         ]);    
     }

@@ -10,6 +10,7 @@ Encore
 
     // will create public/build/app.js and public/build/app.css
     .addEntry('app', './assets/js/app.js')
+    .addEntry('table', './assets/js/table.js')
     .addStyleEntry('appstyle', './assets/css/app.css') 
 
     // allow legacy applications to use $/jQuery as a global variable

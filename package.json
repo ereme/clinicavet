@@ -13,6 +13,8 @@
     },
     "dependencies": {
         "bootstrap": "4.*",
+        "datatables.net": "^1.10.16",
+        "datatables.net-dt": "^1.10.16",
         "jquery": "^3.3.1"
     }
 }

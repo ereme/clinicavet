@@ -31,19 +31,21 @@
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal2">
         Añadir mascota
     </button>
-    <a class="btn btn-success" href="{{path('cliente_gasto')}}" role="button">Ver gasto medio</a>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalg">
+        Ver gasto medio
+    </button>
 </div>
 
 <div id="mascotas">
     <h3 class="center"> Mascotas </h3>
     <div class="card-deck">
         {% for mascota in cliente.mascotas %}
-            <div class="card" width="200px">
+            <div class="card">
               <div class="card-body">
                 <h5 class="card-title">{{ mascota.nombre }}</h5>
                 <p class="card-text">{{mascota.animal}}</p>
                 <p class="card-text">{{mascota.fechanac|date("d - F - Y")}}</p>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                   Añadir consulta
                 </button>
                 <div id="consulta">
@@ -66,5 +68,6 @@
 </div>
 {% include 'cliente/modalconsulta.html.twig' %}
 {% include 'cliente/modalmascota.html.twig' %}
+{% include 'cliente/modalgastocliente.html.twig' %}
 
 {% endblock %}  
